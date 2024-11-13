@@ -18,7 +18,7 @@ public class MergeTwoSortedArray {
                     }
                    else
                     {
-                        arr3[k]=arr1[j];
+                        arr3[k]=arr2[j];
                         j++;
                     }
                     k++;
@@ -42,7 +42,7 @@ public class MergeTwoSortedArray {
             
         }
         static public void main(String args[]){  
-            int[] arr1 = {1,2,3};
+            int[] arr1 = {1,2,3,9};
             int[] arr2 = {3,4,5,6};
             int[] ans = MergeTwoSortedArray(arr1,arr2);
             for (int p : ans) {
