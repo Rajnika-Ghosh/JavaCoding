@@ -1,3 +1,4 @@
+package Sorting;
 class InsertionSort{  
 
     public static int[] InsertionSort(int[] arr)
