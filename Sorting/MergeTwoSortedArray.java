@@ -2,51 +2,69 @@ package Sorting;
 public class MergeTwoSortedArray {
 
 
-    public static int[] MergeTwoSortedArray(int[] arr1,int[] arr2)
+    public static void MergeTwoSortedArray(int[] nums1,int[] nums2, int m , int n)
         {
-                int n1 = arr1.length;
-                int n2 = arr2.length;
-                int[] arr3 = new int[n1+n2];
-                int i = 0;
-                int j = 0;
-                int k = 0;
-                while(i<n1 && j<n2)
+            int k =0;
+            int i=0;
+            int j =0;
+            int[] arr = new int[m+n];
+            if(m==0)
+            {
+                nums1[0]=nums2[0];
+                return ;
+            }
+            else if(n==0)
+            {
+                return ;
+            }
+           while(i<m && j<n)
+                    {
+                        if(nums1[i]<=nums2[j])
+                        {
+                           arr[k]=nums1[i];
+                           i++;
+                        }
+                       else
+                        {
+                            arr[k]=nums2[j];
+                            j++;
+                        }
+                        k++;
+                        
+                    }
+            if(i==m)
+            {
+                while(j<n)
                 {
-                    if(arr1[i]<=arr2[j])
-                    {
-                       arr3[k]=arr1[i];
-                       i++;
-                    }
-                   else
-                    {
-                        arr3[k]=arr2[j];
-                        j++;
-                    }
+                    arr[k]=nums2[j];
                     k++;
-                    
+                    j++;
                 }
-                while(j<n2)
-                    {
-                        arr3[k]=arr2[j];
-                        j++;
-                        k++;
-                    }
-                    
-                while(i<n1)
-                    {
-                        arr3[k]=arr1[i];
-                        i++;
-                        k++;
-                    }
+            }
+            if(j==n)
+            {
+                while(i<m)
+                {
+                    arr[k]=nums1[i];
+                    k++;
+                    i++;
+                }
+            }
+            int p =0;
+           for(int h =0;h<m+n;h++)
+           {
+               nums1[h]=arr[p];
+               p++;
+           }
                 
-                return arr3;
+                
             
         }
         static public void main(String args[]){  
-            int[] arr1 = {1,2,3,9};
-            int[] arr2 = {3,4,5,6};
-            int[] ans = MergeTwoSortedArray(arr1,arr2);
-            for (int p : ans) {
+            int[] arr1 = {1,2,3,0,0,0};
+            int[] arr2 = {2,5,6};
+            MergeTwoSortedArray(arr1,arr2,3,3);
+            for (int p : arr1) {
                 System.out.println(p);  
             }
                 
